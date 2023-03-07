@@ -170,12 +170,12 @@ lsp.denols.setup {
 
 -- Lua
 -- pacman -S lua-language-server
-local sumneko_root_path = os.getenv("HOME") .. "/Downloads/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/Linux/lua-language-server"
+local lua_ls_root_path = os.getenv("HOME") .. "/Downloads/lua-language-server"
+local lua_ls_binary = lua_ls_root_path .. "/bin/Linux/lua-language-server"
 
-lsp.sumneko_lua.setup {
+lsp.lua_ls.setup {
     on_attach = custom_attach,
-    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+    cmd = {lua_ls_binary, "-E", lua_ls_root_path .. "/main.lua"},
     capabilities = capabilities,
     settings = {
         Lua = {
@@ -200,4 +200,4 @@ lsp.sumneko_lua.setup {
 --        on_attach = custom_attach
 --    }
 --})
---lsp.sumneko_lua.setup(luadev)
+--lsp.lua_ls.setup(luadev)
