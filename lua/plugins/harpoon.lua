@@ -1,0 +1,6 @@
+vim.keymap.set('n', '<leader>a', function() require"harpoon.mark".add_file() end, { silent = true })
+vim.keymap.set('n', '<leader>h', function() require"harpoon.ui".toggle_quick_menu() end, { silent = true })
+vim.keymap.set('n', '<leader>z', function() require"harpoon.ui".nav_file(1) end, { silent = true })
+vim.keymap.set('n', '<leader>u', function() require"harpoon.ui".nav_file(2) end, { silent = true })
+vim.keymap.set('n', '<leader>i', function() require"harpoon.ui".nav_file(3) end, { silent = true })
+vim.keymap.set('n', '<leader>o', function() require"harpoon.ui".nav_file(4) end, { silent = true })
