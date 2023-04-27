@@ -40,8 +40,6 @@ require'nvim-treesitter.configs'.setup {
         },
     },
 }
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+vim.treesitter.language.register("tsx", { "javascript", "typescript.tsx" })
 
-local ft_to_parser = require"nvim-treesitter.parsers".filetype_to_parsername
-ft_to_parser.vimwiki = "markdown"
+vim.treesitter.language.register("markdown", "vimwiki")
