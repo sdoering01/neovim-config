@@ -36,6 +36,10 @@ return require('packer').startup(function(use)
     -- Provides types for proper completion of the vim global at
     -- $XDG_DATA_HOME/nvim/plugged/lua-dev.nvim/types
     use 'folke/lua-dev.nvim'
+    -- Package manager for LSP servers, DAP servers, ...
+    use { "williamboman/mason.nvim", run = ":MasonUpdate", config = function() require'mason'.setup() end }
+    -- Displays loading progress for LSP servers
+    use { "j-hui/fidget.nvim", config = function() require'fidget'.setup({ window = { blend = 0 } }) end }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require'plugins.treesitter' end }

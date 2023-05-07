@@ -65,7 +65,6 @@ end
 local lsp = require('lspconfig')
 
 -- Typescript
--- npm i -g typescript typescript-language-server
 lsp.tsserver.setup {
     on_attach = custom_attach,
     capabilities = capabilities,
@@ -73,36 +72,30 @@ lsp.tsserver.setup {
 }
 
 -- Python
--- pip install 'python-lsp-server[all]'
 lsp.pylsp.setup {
     on_attach = custom_attach,
     capabilities = capabilities,
 }
 
 -- TailwindCSS
--- npm i -g @tailwindcss/language-server
 lsp.tailwindcss.setup {
     on_attach = custom_attach,
     capabilities = capabilities,
 }
 
 -- Svelte
--- npm i -g svelte-language-server
 lsp.svelte.setup {
     on_attach = custom_attach,
     capabilities = capabilities,
 }
 
 -- Go
--- https://github.com/golang/tools/tree/master/gopls#installation
--- GO111MODULE=on go get golang.org/x/tools/gopls@latest
 lsp.gopls.setup {
     on_attach = custom_attach,
     capabilities = capabilities,
 }
 
 -- Elixir
--- elixir-ls from AUR
 lsp.elixirls.setup {
     cmd = {"elixir-ls"},
     on_attach = custom_attach,
@@ -110,40 +103,25 @@ lsp.elixirls.setup {
 }
 
 -- Bash
--- pacman -S bash-language-server
 lsp.bashls.setup {
     on_attach = custom_attach,
     capabilities = capabilities,
 }
 
 -- Rust
--- pacman -S rust-analyzer
 lsp.rust_analyzer.setup {
     on_attach = custom_attach,
     capabilities = capabilities,
 }
 
 -- C and C++
--- pacman -S clang
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.offsetEncoding = 'utf-8'
 lsp.clangd.setup {
-    -- (This is for the commented out capabilities) This is required or else a warning will be emitted at every lsp action
     capabilities = capabilities,
     on_attach = custom_attach
 }
 
--- Java
--- AUR package doesn't work, compile yourself:
--- https://github.com/georgewfraser/java-language-server
-lsp.java_language_server.setup {
-    cmd = {"/opt/java-language-server/dist/lang_server_linux.sh"},
-    on_attach = custom_attach,
-    capabilities = capabilities,
-}
-
 -- CSS
--- npm i -g vscode-langservers-extracted
 lsp.cssls.setup {
     on_attach = custom_attach,
     capabilities = capabilities,
@@ -169,13 +147,8 @@ lsp.denols.setup {
 }
 
 -- Lua
--- pacman -S lua-language-server
-local lua_ls_root_path = os.getenv("HOME") .. "/Downloads/lua-language-server"
-local lua_ls_binary = lua_ls_root_path .. "/bin/Linux/lua-language-server"
-
 lsp.lua_ls.setup {
     on_attach = custom_attach,
-    cmd = {lua_ls_binary, "-E", lua_ls_root_path .. "/main.lua"},
     capabilities = capabilities,
     settings = {
         Lua = {
