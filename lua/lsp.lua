@@ -58,6 +58,7 @@ local custom_attach = function(client, bufnr)
     mapper('n', '<space>ldg', '<Cmd>lua vim.diagnostic.open_float()<CR>')
     mapper('n', '<space>lrr', '<Cmd>lua vim.lsp.buf.rename()<CR>')
     mapper('n', '<space>lca', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
+    mapper('v', '<space>lca', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
     mapper('n', '<space>lf', '<Cmd>lua vim.lsp.buf.format({async = true})<CR>')
     mapper('n', '<space>lrf', '<Cmd>lua vim.lsp.buf.references()<CR>')
 end
