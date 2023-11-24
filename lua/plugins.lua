@@ -39,16 +39,12 @@ return require('packer').startup(function(use)
     -- Package manager for LSP servers, DAP servers, ...
     use { "williamboman/mason.nvim", run = ":MasonUpdate", config = function() require'mason'.setup() end }
     -- Displays loading progress for LSP servers
-    use { "j-hui/fidget.nvim", config = function() require'fidget'.setup({ window = { blend = 0 } }) end }
+    use { "j-hui/fidget.nvim", config = function() require'plugins.fidget' end }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require'plugins.treesitter' end }
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'nvim-treesitter/playground'
-
-    -- Coq - completion plugin
-    -- use { 'ms-jpq/coq_nvim', branch = 'coq', commit = '5eddd31bf8a98d1b893b0101047d0bb31ed20c49' }
-    -- use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
 
     -- Completion
     use 'hrsh7th/cmp-nvim-lsp'
@@ -84,7 +80,7 @@ return require('packer').startup(function(use)
 
     -- Adds indentation guides to all lines (vertical line for every level of
     -- indentation)
-    use { 'lukas-reineke/indent-blankline.nvim', config = function() require'plugins.indent-blankline' end }
+    use { 'lukas-reineke/indent-blankline.nvim', config = function() require'plugins.ibl' end }
 
     -- Emmet plugin - let's you generate boilerplate html easily
     use { 'mattn/emmet-vim', config = function() require'plugins.emmet-vim' end }

@@ -10,10 +10,6 @@ cmp.setup({
             vim.fn["vsnip#anonymous"](args.body)
         end,
     },
-    window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
-    },
     mapping = cmp.mapping.preset.insert({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -46,9 +42,7 @@ vim.diagnostic.config({
 local custom_attach = function(client, bufnr)
     -- Make new signcolumn for gitsigns plugin
     vim.opt.signcolumn = "yes:2"
-    require('gitsigns').setup({
-        keymaps = {}
-    })
+    require('gitsigns').setup()
 
     mapper('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
     mapper('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
