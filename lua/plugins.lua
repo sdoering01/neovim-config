@@ -34,7 +34,6 @@ require("lazy").setup({
     { 'lambdalisue/fern.vim', branch = 'main', config = function() require'plugins.fern' end },
     'lambdalisue/nerdfont.vim',
     {'lambdalisue/fern-renderer-nerdfont.vim', dependencies = { 'lambdalisue/fern.vim', 'lambdalisue/nerdfont.vim' } },
-    -- Recommended by Fern
     {'lambdalisue/fern-git-status.vim', dependencies = { "lambdalisue/fern.vim" } },
     -- Use Fern instead of netrw when using `nvim .` for example
     {'lambdalisue/fern-hijack.vim', dependencies = { "lambdalisue/fern.vim" } },
@@ -46,13 +45,21 @@ require("lazy").setup({
     -- $XDG_DATA_HOME/nvim/plugged/lua-dev.nvim/types
     'folke/lua-dev.nvim',
     -- Package manager for LSP servers, DAP servers, ...
-    { "williamboman/mason.nvim", run = ":MasonUpdate", config = function() require'mason'.setup() end },
+    { "williamboman/mason.nvim", build = ":MasonUpdate", main = "mason", opts = {} },
     -- Displays loading progress for LSP servers
-    { "j-hui/fidget.nvim", config = function() require'plugins.fidget' end },
+    {
+        "j-hui/fidget.nvim",
+        opts = {
+            notification = {
+                window = {
+                    winblend = 0,
+                },
+            },
+        },
+    },
 
     -- Treesitter
-    { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config = function() require'plugins.treesitter' end },
-    'nvim-treesitter/nvim-treesitter-textobjects',
+    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', config = function() require'plugins.treesitter' end },
     'nvim-treesitter/playground',
 
     -- Completion
@@ -89,7 +96,15 @@ require("lazy").setup({
 
     -- Adds indentation guides to all lines (vertical line for every level of
     -- indentation)
-    { 'lukas-reineke/indent-blankline.nvim', config = function() require'plugins.ibl' end },
+    {
+        'lukas-reineke/indent-blankline.nvim',
+        main = "ibl",
+        opts = {
+            exclude = {
+                filetypes = { "help", "fern", "fugitive", "git" },
+            },
+        },
+    },
 
     -- Emmet plugin - let's you generate boilerplate html easily
     { 'mattn/emmet-vim', config = function() require'plugins.emmet-vim' end },
@@ -111,7 +126,4 @@ require("lazy").setup({
 
     -- GitHub Copilot
     { 'github/copilot.vim', config = function() require'plugins.copilot' end },
-
-    -- symbols-outline -- provides an outline of symbols in the current file via LSP
-    { 'simrat39/symbols-outline.nvim', config = function() require'plugins.symbols-outline' end },
 })
