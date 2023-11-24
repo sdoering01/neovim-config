@@ -23,7 +23,7 @@ lualine.setup {
             'filetype',
             {
                 'fileformat',
-                symbols = { unix = ' ', dos = ' ', mac = ' '}
+                symbols = { unix = '', dos = '', mac = ''}
             },
         },
         lualine_y = {'progress'},
