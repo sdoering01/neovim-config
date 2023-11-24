@@ -16,5 +16,3 @@ vim.opt.updatetime = 750
 
 vim.opt.laststatus = 3
 vim.cmd("highlight WinSeparator guibg=None")
-
-vim.g.mapleader = " "
