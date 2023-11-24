@@ -162,6 +162,13 @@ lsp.lua_ls.setup {
         }
     }
 }
+
+-- Astro
+lsp.astro.setup {
+    on_attach = custom_attach,
+    capabilities = capabilities,
+}
+
 --local luadev = require("lua-dev").setup({
 --    lspconfig = {
 --        cmd = {"lua-language-server"},
