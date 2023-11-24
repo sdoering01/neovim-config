@@ -11,9 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Has to be set before loading lazy
-vim.g.mapleader = " "
-
 require("lazy").setup({
     'wbthomason/packer.nvim',
 
