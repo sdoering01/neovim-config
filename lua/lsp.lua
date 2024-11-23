@@ -117,9 +117,22 @@ lsp.rust_analyzer.setup {
 }
 
 -- C and C++
-capabilities.offsetEncoding = 'utf-8'
+local clangd_capabilities = require('cmp_nvim_lsp').default_capabilities()
+clangd_capabilities.offsetEncoding = 'utf-8'
 lsp.clangd.setup {
-    capabilities = capabilities,
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--header-insertion=iwyu"
+    },
+    init_options = {
+        clangdFileStatus = true,
+        usePlaceholders = true,
+        completeUnimported = true,
+        semanticHighlighting = true,
+    },
+    capabilities = clangd_capabilities,
     on_attach = custom_attach
 }
 
