@@ -76,6 +76,13 @@ lsp.pylsp.setup {
 lsp.tailwindcss.setup {
     on_attach = custom_attach,
     capabilities = capabilities,
+    init_options = {
+        userLanguages = {
+            elixir = "html-eex",
+            eelixir = "html-eex",
+            heex = "html-eex",
+        },
+    },
 }
 
 -- Svelte
