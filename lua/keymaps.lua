@@ -9,7 +9,6 @@ bind('v', 'K', ":m '<-2<CR>gv")
 bind('v', '<leader>j', "J")
 
 bind('i', 'jk', '<Esc>')
-bind('i', 'kj', '<Esc>')
 
 -- Jump in quickfix list
 bind('n', '<leader>j', ':cn<CR>', { silent = true })
